@@ -3,7 +3,7 @@
 #Membres du groupe
 Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
 Langlois Clément L3 Miage - Université d'Orlé!=ans
-Bitodi Christian L3 Miage - Université d'Orléans
+Bitodi Christian - christian.bitodi@etu.univ-orleans.fr
 GHRIBI Lyne L3 ING - Université d'Orléans
 #commandes faites
 #pour cree le projet 
