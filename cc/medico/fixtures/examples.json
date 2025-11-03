@@ -1,0 +1,146 @@
+[
+    {
+        "model": "medico.consultation",
+        "pk": 1,
+        "fields": {
+            "patient_nom": "Dupont",
+            "patient_prenom": "Marie",
+            "patient_genre": "F",
+            "patient_age": 45,
+            "description": "Contrôle annuel",
+            "date_consultation": "2025-11-03"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 2,
+        "fields": {
+            "patient_nom": "Martin",
+            "patient_prenom": "Jean",
+            "patient_genre": "H",
+            "patient_age": 32,
+            "description": "Symptômes de grippe saisonnière",
+            "date_consultation": "2025-11-04"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 3,
+        "fields": {
+            "patient_nom": "Bernard",
+            "patient_prenom": "Sophie",
+            "patient_genre": "F",
+            "patient_age": 58,
+            "description": "Renouvellement ordonnance pour diabète type 2",
+            "date_consultation": "2025-11-05"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 4,
+        "fields": {
+            "patient_nom": "Petit",
+            "patient_prenom": "Luc",
+            "patient_genre": "H",
+            "patient_age": 50,
+            "description": "Douleurs lombaires aiguës",
+            "date_consultation": "2025-11-06"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 5,
+        "fields": {
+            "patient_nom": "Robert",
+            "patient_prenom": "Isabelle",
+            "patient_genre": "F",
+            "patient_age": 67,
+            "description": "Vaccination contre la grippe",
+            "date_consultation": "2025-11-07"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 6,
+        "fields": {
+            "patient_nom": "Moreau",
+            "patient_prenom": "Thomas",
+            "patient_genre": "H",
+            "patient_age": 25,
+            "description": "Forte douleur à la gorge, suspicion d'angine",
+            "date_consultation": "2025-11-10"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 7,
+        "fields": {
+            "patient_nom": "Girard",
+            "patient_prenom": "Chloé",
+            "patient_genre": "F",
+            "patient_age": 29,
+            "description": "Suivi de grossesse - 3ème mois",
+            "date_consultation": "2025-11-11"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 8,
+        "fields": {
+            "patient_nom": "Lefebvre",
+            "patient_prenom": "Lucas",
+            "patient_genre": "H",
+            "patient_age": 17,
+            "description": "Certificat médical pour pratique du sport",
+            "date_consultation": "2025-11-12"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 9,
+        "fields": {
+            "patient_nom": "Leroy",
+            "patient_prenom": "Juliette",
+            "patient_genre": "F",
+            "patient_age": 35,
+            "description": "Suivi tension artérielle",
+            "date_consultation": "2025-11-13"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 10,
+        "fields": {
+            "patient_nom": "Dubois",
+            "patient_prenom": "Alexandre",
+            "patient_genre": "H",
+            "patient_age": 42,
+            "description": "Dermatologie - Examen des grains de beauté",
+            "date_consultation": "2025-11-14"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 11,
+        "fields": {
+            "patient_nom": "Roux",
+            "patient_prenom": "Camille",
+            "patient_genre": "F",
+            "patient_age": 28,
+            "description": "Troubles du sommeil",
+            "date_consultation": "2025-11-17"
+        }
+    },
+    {
+        "model": "medico.consultation",
+        "pk": 12,
+        "fields": {
+            "patient_nom": "Fournier",
+            "patient_prenom": "Nicolas",
+            "patient_genre": "H",
+            "patient_age": 61,
+            "description": "Bilan sanguin - Suivi cholestérol",
+            "date_consultation": "2025-11-18"
+        }
+    }
+]
