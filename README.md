@@ -1,7 +1,8 @@
 #CC1 framwork web
 
 #Membres du groupe
-Del Carmen Villilo Margerit L3 Miage - Université d'Orlé!=ans
+Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
+
 
 
 #commandes faites
