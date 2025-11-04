@@ -7,26 +7,16 @@
 </head>
 <body>
    <h1>Détail de la consultation numero {{ consultation.pk }}</h1>
-<table border="1">
-    <thead>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Genre</th>
-        <th>Age</th>
-        <th>Date</th>
-        <th>Description</th>
-    </thead>
-    <tbody>
-            <td>{{ consultation.patient_nom }}</td>
-            <td>{{ consultation.patient_prenom }}</td>
-            <td>{{ consultation.get_patient_genre_display }}</td>
-            <td>{{ consultation.patient_age }}</td>
-            <td>{{ consultation.date_consultation }}</td>
-            <td>{{ consultation.description }}</td>
-    </tbody>
-</table>
+<ul >
+    <li><strong>Nom :</strong> {{ consultation.patient_nom }}</li>
+    <li><strong>Prénom :</strong> {{ consultation.patient_prenom }}</li>
+    <li><strong>Genre :</strong> {{ consultation.get_patient_genre_display }}</li>
+    <li><strong>Âge :</strong> {{ consultation.patient_age }}</li>
+    <li><strong>Date :</strong> {{ consultation.date_consultation }}</li>
+    <li><strong>Description :</strong> {{ consultation.description }}</li>
+</ul>
 
-    
+
     
 </body>
 </html>
