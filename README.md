@@ -3,7 +3,7 @@
 #Membres du groupe
 Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
 Langlois Clément L3 Miage - Université d'Orlé!=ans
-Bitodi Christian L3 Miage - Université d'Orléans
+Bitodi Christian - christian.bitodi@etu.univ-orleans.fr
 GHRIBI Lyne L3 ING - Université d'Orléans
 #commandes faites
 #pour cree le projet 
@@ -12,33 +12,43 @@ django-admin start project cc
 mv cc/manage.py .
 #pour cree l'appli medico
 python manage.py startapp medico
+
 #question 5
-commande creation des consultations
--1 python manage.py shell
--2 python manage.py shell
+
+python manage.py shell
 from medico.models import Consultation
 from datetime import date
 
 
 Consultation.objects.create(
-  patient_nom="Dupont",
-  patient_prenom="Alice",
-  patient_genre="F",
-  patient_age=34,
-  description="Douleurs dorsales depuis 2 semaines.",
-  date_consultation=date(2025, 10, 10)
+    patient_nom="Dupont",
+    patient_prenom="Alice",
+    patient_genre="F",
+    patient_age=34,
+    description="Douleurs dorsales depuis 2 semaines.",
+    date_consultation=date(2025, 10, 10)
 )
 
 
 Consultation.objects.create(
-  patient_nom="Martin",
-  patient_prenom="Paul",
-  patient_genre="H",
-  patient_age=45,
-  description="Toux persistante depuis 3 semaines, légère fièvre.",
-  date_consultation=date(2025, 9, 30)
+    patient_nom="Martin",
+    patient_prenom="Paul",
+    patient_genre="H",
+    patient_age=45,
+    description="Toux persistante depuis 3 semaines, légère fièvre.",
+    date_consultation=date(2025, 9, 30)
 )
 
 
+Consultation.objects.create(
+    patient_nom="Durand",
+    patient_prenom="Claire",
+    patient_genre="F",
+    patient_age=28,
+    description="Migraine récurrente et fatigue importante.",
+    date_consultation=date(2025, 10, 5)
+)
 
--3 exit() pour sortir
+exit()
+
+
