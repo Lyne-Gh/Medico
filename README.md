@@ -12,4 +12,33 @@ django-admin start project cc
 mv cc/manage.py .
 #pour cree l'appli medico
 python manage.py startapp medico
+#question 5
+commande creation des consultations
+-1 python manage.py shell
+-2 python manage.py shell
+from medico.models import Consultation
+from datetime import date
 
+
+Consultation.objects.create(
+  patient_nom="Dupont",
+  patient_prenom="Alice",
+  patient_genre="F",
+  patient_age=34,
+  description="Douleurs dorsales depuis 2 semaines.",
+  date_consultation=date(2025, 10, 10)
+)
+
+
+Consultation.objects.create(
+  patient_nom="Martin",
+  patient_prenom="Paul",
+  patient_genre="H",
+  patient_age=45,
+  description="Toux persistante depuis 3 semaines, légère fièvre.",
+  date_consultation=date(2025, 9, 30)
+)
+
+
+
+-3 exit() pour sortir

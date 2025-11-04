@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultation </title>
+</head>
+<body>
+   <h1>Détail de la consultation numero {{ consultation.pk }}</h1>
+<table border="1">
+    <thead>
+        <th>Nom</th>
+        <th>Prénom</th>
+        <th>Genre</th>
+        <th>Age</th>
+        <th>Date</th>
+        <th>Description</th>
+    </thead>
+    <tbody>
+            <td>{{ consultation.patient_nom }}</td>
+            <td>{{ consultation.patient_prenom }}</td>
+            <td>{{ consultation.get_patient_genre_display }}</td>
+            <td>{{ consultation.patient_age }}</td>
+            <td>{{ consultation.date_consultation }}</td>
+            <td>{{ consultation.description }}</td>
+    </tbody>
+</table>
+
+    
+    
+</body>
+</html>
