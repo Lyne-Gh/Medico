@@ -1,4 +1,4 @@
-from django.shortcuts import render ,redirect
+from django.shortcuts import render,redirect,get_object_or_404
 from .forms import ConsultationForm
 from .models import Consultation
 
@@ -27,3 +27,11 @@ def nouvelle_consultation(request):
 
     return render(request, 'medico/nouvelle_consultation.html', {'form': form})
 
+def deleteconsultation(request, consultationID):
+    consultation = get_object_or_404(Consultation, pk=consultationID)
+
+    if request.method == 'POST':
+        consultation.delete()
+        return redirect('listeconsultations')
+
+    return render(request, "medico/consultationSupprConfirm.html", {"consultationid":consultationID})

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation de Suppression</title>
+</head>
+<body>  
+    <div>
+        <p>Confirmez la suppression de la consultation numéro : {{consultationid}}</p>
+        <form action="{% url 'deleteconsultation' consultationid %}" method="post">
+            {% csrf_token %}
+            <button type="submit">Confirmer</button>
+        </form>
+    </div>
+</body>
+</html>
