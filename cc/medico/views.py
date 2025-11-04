@@ -35,3 +35,21 @@ def deleteconsultation(request, consultationID):
         return redirect('listeconsultations')
 
     return render(request, "medico/consultationSupprConfirm.html", {"consultationid":consultationID})
+def check_save(form,request):
+    if form.is_valid():
+        consultation=form.save(commit=False)
+        consultation.save()
+    return consultation.id
+
+
+def editConsultation(request,consultationID):
+    consultation = get_object_or_404(Consultation,pk=consultationID)
+    if request.method =="POST":
+        form = ConsultationForm(request.POST,instance=consultation)
+        id=check_save(form,request)
+        return redirect("consultationDetail",consultationID=id)
+    else:
+        form=ConsultationForm(instance=consultation)
+    return render(
+        request,"medico/consultationModif.html",{"form": form, "button_label": "modifier"},
+    )
