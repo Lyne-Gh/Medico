@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liste Consultations</title>
+</head>
+<body>
+{% if lesConsultations %}
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nom Patient</th>
+            <th>Prénom Patient</th>
+            <th>Genre Patient</th>
+            <th>Age Patient</th>
+            <th>Description</th>
+            <th>Date</th>
+            <th>Détails</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for uneConsultation in lesConsultations %}
+        <tr>
+        <td>{{uneConsultation.patient_nom}}</td>
+        <td>{{uneConsultation.patient_prenom}}</td>
+        <td>{{uneConsultation.patient_genre}}</td>
+        <td>{{uneConsultation.patient_age}}</td>
+        <td>{{uneConsultation.description|slice:":20"}}</td>
+        <td>{{ uneConsultation.date_consultation|date:"l j F Y" }}</td>
+        <td><a href="{% url 'consultationDetail' uneConsultation.id %}">lien détails</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% else %}
+<p>Aucunes Consultations.</p>
+{% endif %}
+</body>
+</html>

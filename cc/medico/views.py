@@ -10,3 +10,8 @@ def consultationDetail(request, consultationID):
         "consultation": consultation,
     }
     return render(request,"medico/consultationDetails.html",context)
+
+def consultations(request):
+    lesConsultations = Consultation.objects.all().order_by('patient_nom')
+    return render(request, 'medico/listeconsultations.html', {"lesConsultations":lesConsultations})
+
