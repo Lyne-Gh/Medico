@@ -21,7 +21,7 @@ def nouvelle_consultation(request):
         form = ConsultationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('liste_consultations')  
+            return redirect('listeconsultations')  
     else:
         form = ConsultationForm()
 
