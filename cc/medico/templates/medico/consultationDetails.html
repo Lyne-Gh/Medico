@@ -6,6 +6,16 @@
     <title>Consultation </title>
 </head>
 <body>
+    <nav>
+        <div class="left"> 
+            <a href="#">Medico</a>
+        </div>
+
+        <div class="right">
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'listeconsultations' %}">Consultation</a>
+        </div>
+    </nav>
    <h1>Détail de la consultation numero {{ consultation.pk }}</h1>
 <ul >
     <li><strong>Nom :</strong> {{ consultation.patient_nom }}</li>

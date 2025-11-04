@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medico</title>
+    <title>Ajouter Consultation</title>
 </head>
 <body>
-    <nav>
+     <nav>
         <div class="left"> 
             <a href="#">Medico</a>
         </div>
@@ -17,8 +17,12 @@
         </div>
     </nav>
     <hr>
+    <h1>Ajouter une nouvelle consultation</h1>
 
-    <h1>About Us</h1>
-    <p>Medico is the revelotuionary solution for doctors</p>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Ajouter Consultation</button>
+    </form>
 </body>
 </html>

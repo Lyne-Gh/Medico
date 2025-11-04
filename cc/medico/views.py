@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render ,redirect
+from .forms import ConsultationForm
 from .models import Consultation
 
 def about(request):
@@ -14,4 +15,15 @@ def consultationDetail(request, consultationID):
 def consultations(request):
     lesConsultations = Consultation.objects.all().order_by('patient_nom')
     return render(request, 'medico/listeconsultations.html', {"lesConsultations":lesConsultations})
+
+def nouvelle_consultation(request):
+    if request.method == 'POST':
+        form = ConsultationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('liste_consultations')  
+    else:
+        form = ConsultationForm()
+
+    return render(request, 'medico/nouvelle_consultation.html', {'form': form})
 

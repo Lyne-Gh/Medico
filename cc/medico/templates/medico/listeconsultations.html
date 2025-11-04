@@ -6,6 +6,17 @@
     <title>Liste Consultations</title>
 </head>
 <body>
+    <nav>
+        <div class="left"> 
+            <a href="#">Medico</a>
+        </div>
+
+        <div class="right">
+            <a href="{% url 'about' %}">About</a>
+            <a href="{% url 'listeconsultations' %}">Consultation</a>
+            <a href="{% url 'nouvelle_consultation' %}">Nouvelle Consultation</a>
+        </div>
+    </nav>
 {% if lesConsultations %}
 <table border="1">
     <thead>
