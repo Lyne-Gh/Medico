@@ -53,3 +53,6 @@ def editConsultation(request,consultationID):
     return render(
         request,"medico/consultationModif.html",{"form": form, "button_label": "modifier"},
     )
+# Vue pour la page principale
+def main(request):
+    return render(request, 'medico/main.html')

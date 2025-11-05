@@ -1,19 +1,17 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+{% block content %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Consultation </title>
+    <title>{%block title%}Consultation{%endblock%} </title>
 </head>
 <body>
     <nav>
-        <div class="left"> 
-            <a href="#">Medico</a>
-        </div>
 
-        <div class="right">
-            <a href="{% url 'about' %}">About</a>
-            <a href="{% url 'listeconsultations' %}">Consultation</a>
+          
         </div>
     </nav>
    <h1>Détail de la consultation numero {{ consultation.pk }}</h1>
@@ -30,3 +28,4 @@
     
 </body>
 </html>
+{% endblock %}

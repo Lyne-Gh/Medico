@@ -1,12 +1,15 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Confirmation de Suppression</title>
+    <title>{% block title %}Confirmation de Suppression{% endblock %}</title>
 </head>
 <body>  
     <div>
+        {% block content %}
         <p>Confirmez la suppression de la consultation numéro : {{consultationid}}</p>
         <form action="{% url 'deleteconsultation' consultationid %}" method="post">
             {% csrf_token %}
@@ -15,3 +18,4 @@
     </div>
 </body>
 </html>
+{% endblock %}
