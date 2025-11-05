@@ -9,11 +9,11 @@
     <title>{%block title%}Document{%endblock%}</title>
 </head>
 <body>
-    <h1>Modification de la Consultation {{ consultation.pk }} </h1>
-     <form method="post">
+    <h1 class="display-1">Modification de la Consultation {{ consultation.pk }} </h1>
+     <form method="post" class="card p-4 shadow-sm">
         {% csrf_token %}
         {{ form.as_p }}
-        <button type="submit">Ajouter Consultation</button>
+        <button type="submit" class="btn btn-primary">Ajouter Consultation</button>
     </form>
     
 </body>

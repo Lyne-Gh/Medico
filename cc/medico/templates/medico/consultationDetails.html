@@ -14,18 +14,20 @@
           
         </div>
     </nav>
-   <h1>Détail de la consultation numero {{ consultation.pk }}</h1>
-<ul >
-    <li><strong>Nom :</strong> {{ consultation.patient_nom }}</li>
-    <li><strong>Prénom :</strong> {{ consultation.patient_prenom }}</li>
-    <li><strong>Genre :</strong> {{ consultation.get_patient_genre_display }}</li>
-    <li><strong>Âge :</strong> {{ consultation.patient_age }}</li>
-    <li><strong>Date :</strong> {{ consultation.date_consultation }}</li>
-    <li><strong>Description :</strong> {{ consultation.description }}</li>
+   <h1 class="display-1">Détail de la consultation numero {{ consultation.pk }}</h1>
+<ul class="list-group" >
+    <li class="list-group-item"><strong>Nom :</strong> {{ consultation.patient_nom }}</li>
+    <li class="list-group-item"><strong>Prénom :</strong> {{ consultation.patient_prenom }}</li>
+    <li class="list-group-item"><strong>Genre :</strong> {{ consultation.get_patient_genre_display }}</li>
+    <li class="list-group-item"><strong>Age :</strong> {{ consultation.patient_age }}</li>
+    <li class="list-group-item"><strong>Date :</strong> {{ consultation.date_consultation }}</li>
+    <li class="list-group-item"><strong>Description :</strong> {{ consultation.description }}</li>
 </ul>
+<br>
+    <a href="{% url 'editConsultation' consultation.id %}" class="btn btn-outline-secondary">
+        Modifier Consultation
+    </a>
 
-
-    
 </body>
 </html>
 {% endblock %}
