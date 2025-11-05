@@ -26,8 +26,7 @@
             <th>Age Patient</th>
             <th>Description</th>
             <th>Date</th>
-            <th>Détails</th>
-            <th>Effacer</th>
+            <th>Actions</th>
         </tr>
     </thead>
     <tbody>
@@ -39,9 +38,10 @@
         <td>{{uneConsultation.patient_age}}</td>
         <td>{{uneConsultation.description|slice:":20"}}</td>
         <td>{{ uneConsultation.date_consultation|date:"l j F Y" }}</td>
-        <td><a class="btn btn-primary btn-sm" href="{% url 'consultationDetail' uneConsultation.id %}">Détails</a></td>
-        <td><a class="btn btn-danger btn-sm" href="{% url 'deleteconsultation' uneConsultation.id %}">Effacer</a></td>
-        </tr>
+        <td class="text-center align-middle"><div class="btn-group btn-group-sm" role="group"><a class="btn btn-primary btn-sm" href="{% url 'consultationDetail' uneConsultation.id %}">Détails</a>
+        <a class="btn btn-danger btn-sm" href="{% url 'deleteconsultation' uneConsultation.id %}">Effacer</a>
+        <a class="btn btn-warning btn-sm" href="{% url 'editConsultation' uneConsultation.id %}" >Modifier</a></div></td>
+    </tr>
         {% endfor %}
     </tbody>
 </table>
