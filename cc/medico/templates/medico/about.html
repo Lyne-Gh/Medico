@@ -1,22 +1,44 @@
-{% extends 'medico/main.html'%}
+{% extends 'medico/main.html' %}
 {% load django_bootstrap5 %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Medico{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <nav>
+    <div class="container mt-5">
+        <header class="text-center mb-4">
+            <h1>À propos de Medico</h1>
+            <p class="lead">Révolutionner l'expérience des consultations médicales en ligne.</p>
+        </header>
 
-      
-    </nav>
-    <hr>
+        <section>
+            <h2>Notre Mission</h2>
+            <p>Chez Medico, notre mission est de révolutionner l'expérience de soins de santé en offrant aux médecins une plateforme puissante pour mener des consultations en ligne, gérer les données des patients et améliorer la qualité des soins.</p>
+        </section>
 
-    <h1>About Us</h1>
-    <p>Medico is the revelotuionary solution for doctors</p>
+        <section class="mt-4">
+            <h2>Pourquoi Choisir Medico ?</h2>
+            <ul>
+                <li><strong>Consultations Faciles :</strong> Planifiez, gérez et effectuez des consultations virtuelles en toute simplicité.</li>
+                <li><strong>Données Patients Sécurisées :</strong> Notre plateforme garantit que toutes les données des patients sont cryptées et stockées de manière sécurisée.</li>
+                <li><strong>Gestion Efficace des Rendez-vous :</strong> Optimisez la gestion des rendez-vous de votre cabinet avec des rappels automatisés et réduisez les absences.</li>
+                <li><strong>Tableau de Bord Complet :</strong> Suivez l'activité de votre pratique grâce à des analyses en temps réel et des informations détaillées sur vos patients.</li>
+            </ul>
+        </section>
+
+        <section class="mt-5">
+            <h2>Contactez-Nous</h2>
+            <p>Si vous avez des questions ou souhaitez en savoir plus sur la manière dont Medico peut aider votre pratique, n'hésitez pas à nous contacter :</p>
+            <ul>
+                <li>Email : support@medico.fr</li>
+            </ul>
+        </section>
+    </div>
 </body>
 </html>
 {% endblock %}

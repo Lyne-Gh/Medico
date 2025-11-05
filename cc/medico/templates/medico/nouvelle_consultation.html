@@ -1,22 +1,29 @@
-{% extends 'medico/main.html'%}
+{% extends 'medico/main.html' %}
 {% load django_bootstrap5 %}
 {% block content %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Ajouter Consultation{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <hr>
-    <h1>Ajouter une nouvelle consultation</h1>
+    <div class="container mt-5">
 
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Ajouter Consultation</button>
-    </form>
+        <section>
+            <h2>Formulaire d'Ajout de Consultation</h2>
+            <form method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    {{ form.as_p }}
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter Consultation</button>
+            </form>
+        </section>
+    </div>
+    
 </body>
 </html>
 {% endblock %}

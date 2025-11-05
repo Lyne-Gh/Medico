@@ -4,7 +4,7 @@
 Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
 Langlois Clément L3 Miage - Université d'Orlé!=ans
 Bitodi Christian - christian.bitodi@etu.univ-orleans.fr
-GHRIBI Lyne L3 ING - Université d'Orléans
+GHRIBI Lyne L3 ING - Université d'Orléans  lyne.ghribi@etu.univ-orleans.fr
 #commandes faites
 #pour cree le projet 
 django-admin start project cc 
