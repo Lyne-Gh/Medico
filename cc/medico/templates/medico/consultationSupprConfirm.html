@@ -8,14 +8,16 @@
     <title>{% block title %}Confirmation de Suppression{% endblock %}</title>
 </head>
 <body>  
-    <div>
-        {% block content %}
-        <p>Confirmez la suppression de la consultation numéro : {{consultationid}}</p>
-        <form action="{% url 'deleteconsultation' consultationid %}" method="post">
+    {% block content %}
+    <div class="d-flex justify-content-center mt-5 text-center">
+        <div>
+            <p>Confirmez la suppression de la consultation numéro : {{ consultationid }}</p>
+            <form action="{% url 'deleteconsultation' consultationid %}" method="post">
             {% csrf_token %}
-            <button type="submit">Confirmer</button>
+            <button class="btn btn-danger btn-sm" type="submit">Confirmer</button>
         </form>
     </div>
+</div>
 </body>
 </html>
 {% endblock %}

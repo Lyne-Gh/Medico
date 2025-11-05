@@ -6,12 +6,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Liste Consultations{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Liste Consultations</title>
 </head>
+<style>
+    .custom-table {
+            width: 70%;
+            margin: 30px auto 0 auto;
+        }
+</style>
 <body>
+    <div class="custom-table">
 {% if lesConsultations %}
-<table border="1">
-    <thead>
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
         <tr>
             <th>Nom Patient</th>
             <th>Prénom Patient</th>
@@ -20,6 +28,7 @@
             <th>Description</th>
             <th>Date</th>
             <th>Détails</th>
+            <th>Effacer</th>
         </tr>
     </thead>
     <tbody>
@@ -31,11 +40,13 @@
         <td>{{uneConsultation.patient_age}}</td>
         <td>{{uneConsultation.description|slice:":20"}}</td>
         <td>{{ uneConsultation.date_consultation|date:"l j F Y" }}</td>
-        <td><a href="{% url 'consultationDetail' uneConsultation.id %}">lien détails</a></td>
+        <td><a class="btn btn-primary btn-sm" href="{% url 'consultationDetail' uneConsultation.id %}">Détails</a></td>
+        <td><a class="btn btn-danger btn-sm" href="{% url 'deleteconsultation' uneConsultation.id %}">Effacer</a></td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
+</div>
 {% else %}
 <p>Aucunes Consultations.</p>
 {% endif %}
