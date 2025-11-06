@@ -1,0 +1,34 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%block title%}Traitement{%endblock%} </title>
+</head>
+<body>
+    <div class="text-center">
+   <h1 class="display-4">Détail du traitement numero {{ traitement.pk }}</h1>
+   </div>
+<ul class="list-group" >
+    <li class="list-group-item"><strong></strong>Libelle Médicament :  {{ traitement.medicament }}</li>
+    <li class="list-group-item"><strong></strong>Quantite :  {{ traitement.quantite }}</li>
+    <li class="list-group-item"><strong></strong>Contenant :  {{ traitement.contenant }}</li>
+    <li class="list-group-item"><strong></strong>Duree traitement : {{ traitement.duree }}</li>
+    <li class="list-group-item"><strong></strong>effets secondaires : {{ traitement.effects_secondaires }}</li>
+    <li class="list-group-item"><strong></strong>consultation id : {{ traitement.consultation.id }}</li>
+</ul>
+<br><div class="d-flex flex-vertical justify-content-center gap-2">
+    <a href="{% url 'modifier_traitement' traitement.id %}" class="btn btn-outline-warning">
+        Modifier Traitement
+    </a>
+<br>
+    <a href="{% url 'consultationDetail' traitement.consultation.id %}" class="btn btn-outline-primary">
+        Détails Consultation
+    </a>
+    </div>
+</body>
+</html>
+{% endblock %}

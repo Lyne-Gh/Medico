@@ -9,6 +9,8 @@ urlpatterns = [
     path('effacer_consultation/<int:consultationID>/', views.deleteconsultation, name='deleteconsultation'),
     path('changer_consultation/<int:consultationID>/',views.editConsultation, name='editConsultation' ),
     
+    path('modifier_traitement/<int:traitementID>', views.traitementModif, name='modifier_traitement'),
+    path('traitement/<int:traitementID>/', views.traitementdetails, name='traitementdetails'),
     # URL pour la page principale
     path('', views.main, name='main'),
     path('ajouter_traitement/<int:consultation_id>/', views.ajouter_traitement, name='ajouter_traitement'),

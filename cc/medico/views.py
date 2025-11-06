@@ -54,7 +54,24 @@ def editConsultation(request,consultationID):
         form=ConsultationForm(instance=consultation)
     return render(
         request,"medico/consultationModif.html",{"form": form, "button_label": "modifier"},
-    )
+    ) 
+
+def traitementModif(request, traitementID):
+    traitement = get_object_or_404(Traitement, pk=traitementID)
+    if(request.method == 'POST'):
+        form = TraitementForm(request.POST,instance=traitement)
+        traitementid = check_save(form, request)
+        return redirect('traitementdetails', traitementID=traitementid)
+    else:
+        form=TraitementForm(instance=traitement)
+    
+    return render(request, "medico/traitementModif.html", {"form":form, "button_label":"modifier"})
+
+
+def traitementdetails(request, traitementID):
+    traitement = get_object_or_404(Traitement, pk=traitementID)
+    return render(request, 'medico/traitementdetails.html', {"traitement":traitement})
+
 # Vue pour la page principale
 def main(request):
     return render(request, 'medico/main.html')

@@ -20,6 +20,7 @@
             <th>Duree en jour</th>
             <th>Effect secondaires</th>
             <th>Consultation</th>
+            <th>Modifier</th>
             
         </tr>
     </thead>
@@ -31,8 +32,8 @@
         <td>{{unTraitement.contenant}}</td>
         <td>{{unTraitement.duree}}</td>
         <td>{{unTraitement.effects_secondaires}}</td>
-        <td><a href="{% url 'consultationDetail' unTraitement.consultation.id %}">Consultation details</a></td>
-        
+        <td><a class="btn btn-sm btn-primary" href="{% url 'consultationDetail' unTraitement.consultation.id %}">Consultation details</a></td>
+        <td><a class="btn btn-sm btn-warning" href="{% url 'modifier_traitement' unTraitement.id %}">Modifier</a></td>
 
         
        
