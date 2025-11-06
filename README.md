@@ -51,4 +51,8 @@ Consultation.objects.create(
 
 exit()
 
+#Question12
+Il y a 2 façons d'ajouter un traitement, dans la liste des consultations avec le bouton 
+[+]Traitement ou dans les détails d'une consultation avec le bouton ajouter consultation
+
 
