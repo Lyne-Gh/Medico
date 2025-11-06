@@ -13,3 +13,14 @@ class Consultation(models.Model):
 
 def __str__(self):
     return self.patient_nom
+
+class Traitement(models.Model):
+    medicament=models.CharField(max_length=40, null=False)
+    quantite=models.IntegerField(null=False)
+    contenant=models.CharField(max_length=20, null=False)
+    duree=models.IntegerField(null=False)  # durée en jours
+    effects_secondaires=models.TextField(null=False, blank=True)
+    consultation=models.ForeignKey(Consultation, on_delete=models.CASCADE, null=False)
+
+def __str__(self):
+    return self.medicament
