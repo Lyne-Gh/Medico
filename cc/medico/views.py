@@ -1,14 +1,16 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import ConsultationForm
-from .models import Consultation
+from .forms import ConsultationForm,TraitementForm
+from .models import Consultation,Traitement
 
 def about(request):
     return render(request, 'medico/about.html')
 
 def consultationDetail(request, consultationID):
     consultation=Consultation.objects.get(pk=consultationID)
+    lesTraitements = consultation.traitement_set.all()
     context = {
         "consultation": consultation,
+        "lesTraitements": lesTraitements,
     }
     return render(request,"medico/consultationDetails.html",context)
 
@@ -56,3 +58,25 @@ def editConsultation(request,consultationID):
 # Vue pour la page principale
 def main(request):
     return render(request, 'medico/main.html')
+
+def ajouter_traitement(request, consultation_id):
+    consultation = Consultation.objects.get(pk=consultation_id)
+
+
+    if request.method == 'POST':
+        form = TraitementForm(request.POST)
+        if form.is_valid():
+            traitement = form.save(commit=False)
+            traitement.consultation = consultation #clé etrangere consultation
+            traitement.save()
+            return redirect('consultationDetail', consultationID=consultation.id)
+    else:
+        form = TraitementForm()
+
+
+    return render(request, 'medico/ajouter_traitement.html', {'form': form, 'consultation': consultation})
+
+
+def traitements(request):
+    lesTraitements = Traitement.objects.all().order_by('medicament')
+    return render(request, 'medico/listetraitement.html', {"lesTraitements":lesTraitements})

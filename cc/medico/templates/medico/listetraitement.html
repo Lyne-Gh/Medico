@@ -1,0 +1,50 @@
+
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+
+   {%block title%}Liste Traitements{%endblock%}
+
+{% block content %}
+
+
+<body>
+
+<div class="custom-table">
+    {% if lesTraitements %}
+<table class="table table-striped table-bordered">
+    <thead class="table-dark">
+        <tr>            
+            <th>Medicament</th>
+            <th>Quantite</th>
+            <th>Contenantt</th>
+            <th>Duree en jour</th>
+            <th>Effect secondaires</th>
+            <th>Consultation</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        {% for unTraitement in lesTraitements %}
+        <tr>
+        <td>{{unTraitement.medicament}}</td>
+        <td>{{unTraitement.quantite}}</td>
+        <td>{{unTraitement.contenant}}</td>
+        <td>{{unTraitement.duree}}</td>
+        <td>{{unTraitement.effects_secondaires}}</td>
+        <td><a href="{% url 'consultationDetail' unTraitement.consultation.id %}">Consultation details</a></td>
+        
+
+        
+       
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% else %}
+<p>Aucunes Traitements.</p>
+{% endif %}
+
+    
+</body>
+{% endblock %}

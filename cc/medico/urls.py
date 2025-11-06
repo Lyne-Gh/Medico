@@ -11,5 +11,8 @@ urlpatterns = [
     
     # URL pour la page principale
     path('', views.main, name='main'),
+    path('ajouter_traitement/<int:consultation_id>/', views.ajouter_traitement, name='ajouter_traitement'),
+    path('traitements/',views.traitements, name='listetraitements'),
+
 
 ]

@@ -22,5 +22,5 @@ class Traitement(models.Model):
     effects_secondaires=models.TextField(null=False, blank=True)
     consultation=models.ForeignKey(Consultation, on_delete=models.CASCADE, null=False)
 
-def __str__(self):
-    return self.medicament
+    def __str__(self):
+        return self.medicament

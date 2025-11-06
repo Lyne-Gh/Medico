@@ -1,0 +1,27 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+   
+</head>
+<body>
+    <h1 class="display-1">Ajout Traitement</h1>
+    <form method="post" class="card p-4 shadow-sm">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Ajouter traitement</button>
+</form>
+<p>
+    <a href="{% url 'listeconsultations'   %}"> Retour à la liste</a>
+</p>
+
+
+</body>
+</html>
+{% endblock %}

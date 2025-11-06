@@ -1,5 +1,5 @@
 from django import forms
-from .models import Consultation
+from .models import Consultation,Traitement
 from datetime import date
 
 class ConsultationForm(forms.ModelForm):
@@ -11,3 +11,9 @@ class ConsultationForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.instance.date_consultation = date.today() 
+
+
+class TraitementForm(forms.ModelForm):
+    class Meta:
+        model = Traitement
+        fields = ['medicament', 'quantite', 'contenant', 'duree', 'effects_secondaires']

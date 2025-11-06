@@ -17,14 +17,18 @@
     <a class=" text-white nav-link" href="{% url 'listeconsultations' %}">Consultations</a>
   </li>
   <li class="navbar-item active">
+    <a class="text-white nav-link" href="{% url 'listetraitements' %}">Traitements</a>
+    </li>
+  <li class="navbar-item active">
     <a class="text-white nav-link" href="{% url 'nouvelle_consultation' %}">Ajouter Consultation</a>
   </li>
     <li class="navbar-item active">
     <a class="text-white nav-link" href="{% url 'about' %}">À propos</a>
     </li>
+    
     </ul>
   </nav>
-      <div class="container flex-grow-1">
+      <div class="container flex-grow-1 mt-4">
       {% block content %}
       {% endblock %}
        </div>
