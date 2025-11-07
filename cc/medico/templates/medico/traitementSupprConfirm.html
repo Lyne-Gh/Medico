@@ -1,0 +1,24 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Confirmation de Suppression{% endblock %}</title>
+</head>
+<body>  
+    {% block content %}
+    <div class="d-flex justify-content-center mt-5 text-center">
+        <div>
+            <p>Confirmez la suppression du traitement numéro : {{ traitementID }}</p>
+            <form action="{% url 'delete_traitement' traitementID %}" method="post">
+            {% csrf_token %}
+            <button class="btn btn-danger btn-sm" type="submit">Confirmer</button>
+            <button class="btn btn-secondary btn-sm" type="button" onclick="window.history.back();">Annuler</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}

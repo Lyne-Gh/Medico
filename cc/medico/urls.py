@@ -11,10 +11,12 @@ urlpatterns = [
     
     path('modifier_traitement/<int:traitementID>', views.traitementModif, name='modifier_traitement'),
     path('traitement/<int:traitementID>/', views.traitementdetails, name='traitementdetails'),
-    # URL pour la page principale
-    path('', views.main, name='main'),
+
+    path('', views.main, name='main'), # URL pour la page principale
     path('ajouter_traitement/<int:consultation_id>/', views.ajouter_traitement, name='ajouter_traitement'),
     path('traitements/',views.traitements, name='listetraitements'),
 
+    path('delete_traitement/<int:traitementID>/', views.delete_traitement, name='delete_traitement'), # URL pour supprimer un traitement
+    path('consultation/<int:consultationID>/traitements/', views.suppression_traitement, name='suppression_traitement'), # URL page suppression traitements d'une consultation
 
 ]

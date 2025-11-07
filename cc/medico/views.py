@@ -72,8 +72,8 @@ def traitementdetails(request, traitementID):
     traitement = get_object_or_404(Traitement, pk=traitementID)
     return render(request, 'medico/traitementdetails.html', {"traitement":traitement})
 
-# Vue pour la page principale
-def main(request):
+
+def main(request): # Vue pour la page principale
     return render(request, 'medico/main.html')
 
 def ajouter_traitement(request, consultation_id):
@@ -97,3 +97,23 @@ def ajouter_traitement(request, consultation_id):
 def traitements(request):
     lesTraitements = Traitement.objects.all().order_by('medicament')
     return render(request, 'medico/listetraitement.html', {"lesTraitements":lesTraitements})
+
+
+def suppression_traitement(request, consultationID): # Vue pour la page de suppression des traitements d'une consultation
+    consultation = get_object_or_404(Consultation, pk=consultationID)
+    traitements = consultation.traitement_set.all()
+    return render(request, "medico/suppression_traitement.html",{"consultation": consultation, 
+                                                                          "traitements": traitements})
+                                                                          
+
+
+def delete_traitement(request, traitementID): # Vue pour supprimer un traitement
+    traitement = get_object_or_404(Traitement, pk=traitementID)
+    consultation_id = traitement.consultation.id
+
+    if request.method == 'POST':
+        traitement.delete()
+        return redirect('suppression_traitement', consultationID=consultation_id)
+
+    return render(request, "medico/traitementSupprConfirm.html", {"traitementID":traitementID})
+

@@ -33,6 +33,7 @@
             <th>Duree en jour</th>
             <th>Effect secondaires</th>
             <th>Consultation</th>
+            <th>Action</th>
         </tr>
     </thead>
     <tbody>
@@ -44,6 +45,7 @@
         <td>{{unTraitement.duree}}</td>
         <td>{{unTraitement.effects_secondaires}}</td>
         <td>{{ unTraitement.consultation.id }}</td>
+        <td><a class="btn btn-sm btn-danger" href="{% url 'delete_traitement' unTraitement.id %}">Supprimer</a></td>
         </tr>
         {% endfor %}
     </tbody>

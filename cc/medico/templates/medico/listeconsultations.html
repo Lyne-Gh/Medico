@@ -36,7 +36,8 @@
         <td class="text-center align-middle"><div class="btn-group btn-group-sm" role="group"><a class="btn btn-primary btn-sm" href="{% url 'consultationDetail' uneConsultation.id %}">Détails</a>
         <a class="btn btn-danger btn-sm" href="{% url 'deleteconsultation' uneConsultation.id %}">Effacer</a>
         <a class="btn btn-warning btn-sm" href="{% url 'editConsultation' uneConsultation.id %}" >Modifier</a>
-        <a class="btn btn-primary btn-sm" href="{% url 'ajouter_traitement' uneConsultation.id %}">[+]Traitement</a></div></td>
+        <a class="btn btn-primary btn-sm" href="{% url 'ajouter_traitement' uneConsultation.id %}">[+]Traitement</a>
+        <a class="btn btn-info btn-sm" href="{% url 'suppression_traitement' uneConsultation.id %}">[-]Traitement</a></div></td>
     </tr>
         {% endfor %}
     </tbody>
