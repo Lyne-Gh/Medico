@@ -13,6 +13,12 @@ mv cc/manage.py .
 #pour cree l'appli medico
 python manage.py startapp medico
 
+#Question 4 : - Bitodi Christian :
+ - mkdir medico/fixtures (Créer le dossier fixtures qui contiendra examples.json)
+ - python cc/manage.py dumpdata medico --indent 4 > cc/medico/fixtures/examples.json (Extraire les données dans la base 
+ [--ident 4 sert à indenter les champs pour les  reconnaitre plus facilement])
+ -  cd cc && python manage.py loaddata examples (Charger les données du fichier examples.json dans la base)
+
 #question 5
 
 python manage.py shell
@@ -50,6 +56,16 @@ Consultation.objects.create(
 )
 
 exit()
+
+#Question 10 : - Bitodi Christian :
+ - pip install django-bootstrap5 (installer BootStrap5 et l'ajouter dans settings.py)
+ - cela a servi à  utiliser des balises de template  comme : 
+{% load django_bootstrap5 %}
+{% block content %}
+{% endblock %}
+
+
+
 #question11 -> creation des traitements sur shell
 from app_name.models import Consultation, Traitement
 c2 = Consultation.objects.get(id=2)
@@ -78,6 +94,11 @@ t2 = Traitement.objects.create(
 #Question12
 Il y a 2 façons d'ajouter un traitement, dans la liste des consultations avec le bouton 
 [+]Traitement ou dans les détails d'une consultation avec le bouton ajouter consultation
+
+#Question 12 -(Partie - Suprimer Traitement) : - Bitodi Christian :
+Il y a 3 manières de supprimer un traitement : (1) : dans la liste des consultations avec le bouton 
+[-]Traitement | (2) : dans les détails d'une consultation avec le bouton ajouter consultation | (3): et lorsque on va dans les détails d'une consultations
+
 
 
 #Question14
