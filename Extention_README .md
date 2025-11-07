@@ -10,7 +10,7 @@ Administrateurs : Les administrateurs auront la possibilité d'ajouter de nouvea
 
 Médecins : Les médecins pourront se connecter pour consulter et gérer leurs réservations.
 
-#B/ Ajout de Modèle Médecin
+#B/ Ajout de Modèle Médecin, patients et appointements
 
 
 #C/ Système de Réservation:
@@ -21,16 +21,22 @@ Le motif de la consultation : le patient peut spécifier la raison de la visite.
 
 L'heure et la date : le système prendra en compte les plages horaires et les jours de disponibilité des médecins.
 
-#D/ Calendrier des Médecins
+#D/ Liste des Médecins et de reservation
 
-Un calendrier interactif sera ajouté pour chaque médecin. Ce calendrier permettra :
-
-De voir l'ensemble des réservations pour un médecin spécifique.
-
-D'afficher un référentiel visuel des horaires disponibles et des créneaux déjà réservés pour chaque journée.
+Permettant de voir l'ensemble des réservations pour un médecin spécifique.
 
 Les médecins pourront également consulter leurs propres réservations et avoir une vue claire de leur emploi du temps.
 
 #Pour se connecter en tant que admin (hardcoded):
 'username': 'admin',
 'password': 'admin/check'
+
+#Pour se connecter en tant que docteur:
+'username': 'Audrey',
+'password': 'D000000'
+
+#Pour se connecter en tant que patient:
+'username': testmail@gmail.com
+'password': 1234
+
+Vous pouvez creer un compte en temps que patient.
