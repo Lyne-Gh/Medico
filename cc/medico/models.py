@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.contrib.auth.hashers import make_password, check_password
 
 # Create your models here.
 class Consultation(models.Model):
@@ -24,3 +24,47 @@ class Traitement(models.Model):
 
     def __str__(self):
         return self.medicament
+
+class Doctor(models.Model):
+    SPECIALITY_CHOICES = [
+        ('Gynécologue', 'Gynécologue'),
+        ('Médecin généraliste', 'Médecin généraliste'),
+        ('Cardiologue', 'Cardiologue'),
+        ('Pédiatre', 'Pédiatre'),
+        ('Dermatologue', 'Dermatologue'),
+        ('Ophtalmologue', 'Ophtalmologue'),
+        ('Orthopédiste', 'Orthopédiste'),
+        ('Neurologue', 'Neurologue'),
+        ('Psychiatre', 'Psychiatre'),
+        ('Radiologue', 'Radiologue'),
+        ('Chirurgien', 'Chirurgien'),
+        ('Gastro-entérologue', 'Gastro-entérologue'),
+        ('Rhumatologue', 'Rhumatologue'),
+        ('Endocrinologue', 'Endocrinologue'),
+        ('Urologue', 'Urologue'),
+        ('Hématologue', 'Hématologue'),
+        ('Infectiologue', 'Infectiologue'),
+    ]
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    speciality = models.CharField(max_length=50, choices=SPECIALITY_CHOICES)
+    password = models.CharField(max_length=100, default="D000000")
+    shift = models.CharField(max_length=10)
+    start_time = models.CharField(max_length=5, blank=True)
+    end_time = models.CharField(max_length=5, blank=True)
+    available_days = models.TextField(blank=True)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name} - {self.speciality}"
+
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password(raw_password, self.password)
+
+    def save(self, *args, **kwargs):
+        if not self.pk:
+            if self.password == "D000000":
+                self.set_password(self.password)
+        super(Doctor, self).save(*args, **kwargs)
