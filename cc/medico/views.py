@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,get_object_or_404
-from .forms import ConsultationForm,TraitementForm
-from .models import Consultation,Traitement
+from .forms import ConsultationForm,TraitementForm,DoctorForm
+from .models import Consultation,Traitement,Doctor
+from django.contrib import messages
 
 def about(request):
     return render(request, 'medico/about.html')
@@ -117,3 +118,58 @@ def delete_traitement(request, traitementID): # Vue pour supprimer un traitement
 
     return render(request, "medico/traitementSupprConfirm.html", {"traitementID":traitementID})
 
+ADMIN_CREDENTIALS = {
+    'username': 'admin',
+    'password': 'admin/check'
+}
+
+def login_view(request):
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        if username == ADMIN_CREDENTIALS['username'] and password == ADMIN_CREDENTIALS['password']:
+            request.session['is_admin'] = True
+            request.session['is_doctor'] = False
+            return redirect('about')
+        try:
+            doctor = Doctor.objects.get(first_name=username)  
+            if doctor.check_password(password): 
+                request.session['is_doctor'] = True
+                request.session['is_admin'] = False
+                return redirect('about')  
+            else:
+                messages.error(request, 'Mot de passe incorrect.')
+        except Doctor.DoesNotExist:
+            messages.error(request, 'Nom d\'utilisateur incorrect.')
+
+    return render(request, 'medico/login.html')
+
+def logout_view(request):
+    request.session.flush() 
+    return redirect('about')
+
+def add_doctor(request):
+    if request.method == 'POST':
+        form = DoctorForm(request.POST)
+        if form.is_valid():
+
+            doctor = form.save()
+            if doctor.shift == 'morning':
+                doctor.start_time = '08:00'
+                doctor.end_time = '17:00'
+            elif doctor.shift == 'night':
+                doctor.start_time = '17:00'
+                doctor.end_time = '08:00'
+
+            doctor.save()
+            doctor.available_days = ', '.join(form.cleaned_data['available_days'])
+            doctor.save()
+
+            messages.success(request, "Médecin ajouté avec succès!")
+            return redirect('about')  
+
+    else:
+        form = DoctorForm()
+
+    return render(request, 'medico/add_doctor.html', {'form': form})

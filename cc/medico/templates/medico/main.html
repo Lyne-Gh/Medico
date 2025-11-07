@@ -25,8 +25,23 @@
     <li class="navbar-item active">
     <a class="text-white nav-link" href="{% url 'about' %}">À propos</a>
     </li>
+    {% if request.session.is_admin %}
+    <li class="navbar-item active">
+      <a class="text-white nav-link" href="{% url 'add_doctor' %}">Ajouter Médecin</a>
+    </li>
+    {% endif %}
     
     </ul>
+
+     <ul class="navbar-nav ml-auto">
+    <li class="navbar-item active">
+        {% if request.session.is_admin or request.session.is_doctor %}
+            <a class="text-white nav-link" href="{% url 'logout' %}">Se déconnecter</a>
+        {% else %}
+            <a class="text-white nav-link" href="{% url 'login' %}">Se connecter</a>
+        {% endif %}
+    </li>
+</ul>
   </nav>
       <div class="container flex-grow-1 mt-4">
       {% block content %}

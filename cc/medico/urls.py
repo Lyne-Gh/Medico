@@ -19,4 +19,7 @@ urlpatterns = [
     path('delete_traitement/<int:traitementID>/', views.delete_traitement, name='delete_traitement'), # URL pour supprimer un traitement
     path('consultation/<int:consultationID>/traitements/', views.suppression_traitement, name='suppression_traitement'), # URL page suppression traitements d'une consultation
 
+    path('login/', views.login_view, name='login'),
+    path('logout/', views.logout_view, name='logout'), 
+    path('add_doctor/', views.add_doctor, name='add_doctor'),
 ]

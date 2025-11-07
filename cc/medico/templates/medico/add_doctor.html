@@ -1,0 +1,21 @@
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Ajouter Médecin</title>
+</head>
+<body>
+    <div class="container mt-4">
+        <h1>Ajouter un Médecin</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            <button type="submit" class="btn btn-success">Ajouter Médecin</button>
+        </form>
+    </div>
+</body>
+</html>
+{% endblock %}
