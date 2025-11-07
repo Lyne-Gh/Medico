@@ -2,7 +2,7 @@
 
 #Membres du groupe
 Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
-Langlois Clément L3 Miage - Université d'Orlé!=ans
+Langlois Clément L3 Miage - clement.langlois1@etu.univ-orleans.fr
 Bitodi Christian - christian.bitodi@etu.univ-orleans.fr
 GHRIBI Lyne L3 ING - Université d'Orléans  lyne.ghribi@etu.univ-orleans.fr
 #commandes faites
@@ -56,3 +56,5 @@ Il y a 2 façons d'ajouter un traitement, dans la liste des consultations avec l
 [+]Traitement ou dans les détails d'une consultation avec le bouton ajouter consultation
 
 
+#Question14
+--> Extention_README .md
