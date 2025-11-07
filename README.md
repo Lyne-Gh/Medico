@@ -95,7 +95,7 @@ t2 = Traitement.objects.create(
 Il y a 2 façons d'ajouter un traitement, dans la liste des consultations avec le bouton 
 [+]Traitement ou dans les détails d'une consultation avec le bouton ajouter consultation
 
-#Question 12 -(Partie - Suprimer Traitement) : - Bitodi Christian :
+#Question 12 - (Partie - Suprimer Traitement) : - Bitodi Christian :
 Il y a 3 manières de supprimer un traitement : (1) : dans la liste des consultations avec le bouton 
 [-]Traitement | (2) : dans les détails d'une consultation avec le bouton ajouter consultation | (3): et lorsque on va dans les détails d'une consultations
 
