@@ -20,6 +20,12 @@ urlpatterns = [
     path('consultation/<int:consultationID>/traitements/', views.suppression_traitement, name='suppression_traitement'), # URL page suppression traitements d'une consultation
 
     path('login/', views.login_view, name='login'),
+    path('register/', views.register_view, name='register'),
     path('logout/', views.logout_view, name='logout'), 
     path('add_doctor/', views.add_doctor, name='add_doctor'),
+    path('appointments/', views.liste_rendez_vous, name='liste_rendez_vous'),
+    path('takeappointments/', views.prendre_rendez_vous, name='prendre_rendez_vous'),
+    path('doctors/', views.listdoctors, name='doctors'),
+    path('editDoctor/<int:doctorID>', views.editDoctor, name='editDoctor'),
+    path('deleteDoctor/<int:doctorID>', views.deleteDoctor, name='deleteDoctor'),
 ]

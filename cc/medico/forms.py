@@ -1,5 +1,5 @@
 from django import forms
-from .models import Consultation,Traitement, Doctor
+from .models import Consultation,Traitement, Doctor, Appointment
 from datetime import date
 
 class ConsultationForm(forms.ModelForm):
@@ -68,3 +68,23 @@ class DoctorForm(forms.ModelForm):
     class Meta:
         model = Doctor
         fields = ['first_name', 'last_name', 'speciality', 'shift', 'available_days']
+
+class AppointmentForm(forms.ModelForm):
+    doctor = forms.ModelChoiceField(queryset=Doctor.objects.all(), label="Choisissez un docteur")
+    appointment_date = forms.DateField(
+        widget=forms.DateInput(attrs={'type': 'date'}),
+        label="Date du rendez-vous"
+    )
+    appointment_time = forms.TimeField(
+        widget=forms.TimeInput(attrs={'type': 'time'}),
+        label="Heure du rendez-vous"
+    )
+    reason = forms.CharField(
+        widget=forms.Textarea(attrs={'rows': 3}),
+        required=False,
+        label="Raison de la consultation"
+    )
+
+    class Meta:
+        model = Appointment
+        fields = ['doctor', 'appointment_date', 'appointment_time', 'reason']

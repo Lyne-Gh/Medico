@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.hashers import make_password, check_password
+from django.utils import timezone
 
 # Create your models here.
 class Consultation(models.Model):
@@ -68,3 +69,34 @@ class Doctor(models.Model):
             if self.password == "D000000":
                 self.set_password(self.password)
         super(Doctor, self).save(*args, **kwargs)
+
+class Patient(models.Model):
+    first_name = models.CharField(max_length=100)
+    last_name = models.CharField(max_length=100)
+    email = models.EmailField(unique=True)
+    password = models.CharField(max_length=128)
+
+    def __str__(self):
+        return f"{self.first_name} {self.last_name}"
+
+    def set_password(self, raw_password):
+        self.password = make_password(raw_password)
+
+    def check_password(self, raw_password):
+        return check_password(raw_password, self.password)
+
+    def save(self, *args, **kwargs):
+        if not self.pk or not self.password.startswith('pbkdf2_'):
+            self.set_password(self.password)
+        super().save(*args, **kwargs)
+
+class Appointment(models.Model):
+    doctor = models.ForeignKey('Doctor', on_delete=models.CASCADE, related_name='appointments')
+    patient = models.ForeignKey('Patient', on_delete=models.CASCADE, related_name='appointments')
+    appointment_date = models.DateField()
+    appointment_time = models.TimeField()
+    reason = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(default=timezone.now)
+
+    def __str__(self):
+        return f"({self.appointment_date} {self.appointment_time})"

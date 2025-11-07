@@ -1,0 +1,67 @@
+{% extends 'medico/main.html' %}
+{% load django_bootstrap5 %}
+{%block title%}Rendez-vous{%endblock%}
+{% block content %}
+<body class="bg-light">
+
+    <div class="container mt-5 mb-5">
+        <div class="card shadow-sm">
+            <div class="card-body">
+
+                {% if request.session.is_doctor %}
+                    <h2 class="text-center mb-4 text-primary">
+                        Planning du Dr. 
+                        {% if appointments %}
+                            {{ appointments.first.doctor.last_name }}
+                        {% endif %}
+                    </h2>
+                {% else %}
+                    <h2 class="text-center mb-4 text-primary">Mes Rendez-vous</h2>
+                {% endif %}
+
+                {% if appointments %}
+                    <div class="table-responsive">
+                        <table class="table table-striped table-hover align-middle">
+                            <thead class="table-primary">
+                                <tr>
+                                    {% if request.session.is_doctor %}
+                                        <th>Patient</th>
+                                    {% else %}
+                                        <th>Docteur</th>
+                                    {% endif %}
+                                    <th>Date</th>
+                                    <th>Heure</th>
+                                    <th>Raison</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for appt in appointments %}
+                                    <tr>
+                                        {% if request.session.is_doctor %}
+                                            <td>{{ appt.patient.first_name }} {{ appt.patient.last_name }}</td>
+                                        {% else %}
+                                            <td>{{ appt.doctor.first_name }} {{ appt.doctor.last_name }}</td>
+                                        {% endif %}
+                                        <td>{{ appt.appointment_date }}</td>
+                                        <td>{{ appt.appointment_time }}</td>
+                                        <td>{{ appt.reason|default:"—" }}</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <div class="alert alert-info text-center mt-4">
+                        Aucun rendez-vous trouvé.
+                    </div>
+                {% endif %}
+
+                <div class="text-center mt-4">
+                    <a href="{% url 'about' %}" class="btn btn-primary">
+                        Retour
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endblock %}

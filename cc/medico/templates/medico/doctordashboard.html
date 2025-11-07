@@ -1,0 +1,49 @@
+{% extends 'medico/main.html' %}
+{% load django_bootstrap5 %}
+{%block title%}Docteur Dashboard{%endblock%}
+{% block content %}
+
+<div class="container mt-4">
+    <h2 class="mb-4">Liste des Médecins</h2>
+
+    {% if doctors %}
+    <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+            <tr>
+                <th>Prénom</th>
+                <th>Nom</th>
+                <th>Spécialité</th>
+                <th>Shift</th>
+                <th>Heure Début</th>
+                <th>Heure Fin</th>
+                <th>Jours Disponibles</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctors %}
+            <tr>
+                <td>{{ doctor.first_name }}</td>
+                <td>{{ doctor.last_name }}</td>
+                <td>{{ doctor.speciality }}</td>
+                <td>{{ doctor.shift }}</td>
+                <td>{{ doctor.start_time }}</td>
+                <td>{{ doctor.end_time }}</td>
+                <td>{{ doctor.available_days }}</td>
+                <td class="text-center">
+                    <div class="btn-group btn-group-sm" role="group">
+                        <a class="btn btn-warning" href="{% url 'editDoctor' doctor.id %}">Modifier</a>
+                        <a class="btn btn-danger" href="{% url 'deleteDoctor' doctor.id %}">Supprimer</a>
+                    </div>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>Aucun médecin trouvé.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,14 @@
+
+{% extends 'medico/main.html'%}
+{% load django_bootstrap5 %}
+{%block title%}Modification Docteur{%endblock%}
+{% block content %}
+<div class="text-center">
+        <h1>Modification Docteur </h1>
+    </div>
+     <form method="post" class="text-center">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-sm btn-warning">Modifier Docteur</button>
+    </form>
+{% endblock %}
