@@ -2,6 +2,7 @@ from django.shortcuts import render,redirect,get_object_or_404
 from .forms import ConsultationForm,TraitementForm,DoctorForm, AppointmentForm
 from .models import Consultation,Traitement,Doctor,Patient,Appointment
 from django.contrib import messages
+from datetime import datetime
 
 def about(request):
     return render(request, 'medico/about.html')
@@ -266,33 +267,39 @@ def prendre_rendez_vous(request):
     if not request.session.get('is_patient'):
         messages.error(request, "Vous devez être connecté comme patient pour prendre un rendez-vous.")
         return redirect('login')
-
     if request.method == 'POST':
         form = AppointmentForm(request.POST)
         if form.is_valid():
             appointment = form.save(commit=False)
-
             patient_email = request.session.get('patient_email')
             try:
                 patient = Patient.objects.get(email=patient_email)
             except Patient.DoesNotExist:
                 messages.error(request, "Patient introuvable.")
                 return redirect('login')
-
             appointment.patient = patient
-
-            exists = Appointment.objects.filter(
-                doctor=appointment.doctor,
+            doctor = appointment.doctor
+            try:
+                start = datetime.strptime(doctor.start_time, '%H:%M').time()
+                end = datetime.strptime(doctor.end_time, '%H:%M').time()
+            except ValueError:
+                messages.error(request, "Les horaires du docteur sont mal configurés.")
+                return redirect('prendre_rendez_vous')
+            if not (start <= appointment.appointment_time <= end):
+                messages.error(request, f"Le docteur n'est pas disponible entre {doctor.start_time} et {doctor.end_time}.")
+                return render(request, 'medico/prendre_rendez_vous.html', {'form': form})
+            conflict = Appointment.objects.filter(
+                doctor=doctor,
                 appointment_date=appointment.appointment_date,
                 appointment_time=appointment.appointment_time
             ).exists()
-
-            if exists:
+            if conflict:
                 messages.error(request, "Le docteur a déjà un rendez-vous à cette heure.")
-            else:
-                appointment.save()
-                messages.success(request, "Votre rendez-vous a été enregistré avec succès !")
-                return redirect('liste_rendez_vous') 
+                return render(request, 'medico/prendre_rendez_vous.html', {'form': form})
+            appointment.save()
+            messages.success(request, "Votre rendez-vous a été enregistré avec succès !")
+            return redirect('liste_rendez_vous')
+
     else:
         form = AppointmentForm()
 
