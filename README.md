@@ -50,6 +50,30 @@ Consultation.objects.create(
 )
 
 exit()
+#question11 -> creation des traitements sur shell
+from app_name.models import Consultation, Traitement
+c2 = Consultation.objects.get(id=2)
+c3 = Consultation.objects.get(id=3)
+t1 = Traitement.objects.create(
+    medicament="Paracétamol",
+    quantite=2,
+    contenant="comprimé",
+    duree=5,
+    effects_secondaires="Somnolence légère",
+    consultation=c2
+)
+
+t2 = Traitement.objects.create(
+    medicament="Amoxicilline",
+    quantite=3,
+    contenant="gélule",
+    duree=7,
+    effects_secondaires="Nausées possibles",
+    consultation=c3
+)
+
+
+
 
 #Question12
 Il y a 2 façons d'ajouter un traitement, dans la liste des consultations avec le bouton 
