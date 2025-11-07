@@ -57,10 +57,11 @@
 
 
 
- <a href="{% url 'editConsultation' consultation.id %}" class="btn btn-outline-secondary">
+ <a href="{% url 'editConsultation' consultation.id %}" class="btn btn-sm btn-warning mb-4">
         Modifier Consultation
     </a>
-    <a href="{% url 'ajouter_traitement' consultation.pk %}" class="btn btn-outline-secondary mb-4">
+    <br>
+    <a href="{% url 'ajouter_traitement' consultation.pk %}" class="btn btn-success mb-4">
         Ajouter un traitement
     </a>
 
