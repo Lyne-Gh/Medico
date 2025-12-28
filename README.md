@@ -8,7 +8,7 @@ mv cc/manage.py .
 #pour cree l'appli medico
 python manage.py startapp medico
 
-#Question 4 : - Bitodi Christian :
+#Question 4 : 
  - mkdir medico/fixtures (Créer le dossier fixtures qui contiendra examples.json)
  - python cc/manage.py dumpdata medico --indent 4 > cc/medico/fixtures/examples.json (Extraire les données dans la base 
  [--ident 4 sert à indenter les champs pour les  reconnaitre plus facilement])
@@ -52,7 +52,7 @@ Consultation.objects.create(
 
 exit()
 
-#Question 10 : - Bitodi Christian :
+#Question 10 : 
  - pip install django-bootstrap5 (installer BootStrap5 et l'ajouter dans settings.py)
  - cela a servi à  utiliser des balises de template  comme : 
 {% load django_bootstrap5 %}
