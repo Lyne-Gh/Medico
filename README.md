@@ -1,10 +1,5 @@
 #CC1 framwork web
 
-#Membres du groupe
-Del Carmen Villilo Margerit margerit.del-carmen-villilo@etu.univ-orleans.fr
-Langlois Clément L3 Miage - clement.langlois1@etu.univ-orleans.fr
-Bitodi Christian - christian.bitodi@etu.univ-orleans.fr
-GHRIBI Lyne L3 ING - Université d'Orléans  lyne.ghribi@etu.univ-orleans.fr
 #commandes faites
 #pour cree le projet 
 django-admin start project cc 
